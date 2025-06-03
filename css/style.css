@@ -91,3 +91,11 @@ body {
     .mobile-menu.open {
       transform: translateX(0);
     }
+
+      .nav-link {
+    @apply hover:text-orange-primary transition-all duration-300 hover:scale-110 relative group;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-primary transition-all duration-300 group-hover:w-full;
+  }
