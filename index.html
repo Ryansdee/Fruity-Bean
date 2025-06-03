@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fruity Bean - Café aux Saveurs Tropicales</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/tailwind.config.js"></script>
+</head>
+<body class="parallax-bg text-coffee-dark overflow-x-hidden">
+
+  <!-- Navbar améliorée -->
+  <nav class="fixed w-full glass py-4 px-6 z-50 shadow-lg bg-white/90 backdrop-blur-md transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold gradient-text font-display animate-float">☕ Fruity Bean</h1>
+      <div class="hidden md:flex space-x-8 text-coffee-medium font-semibold">
+        <a href="#home" class="hover:text-orange-primary transition-all duration-300 hover:scale-110 relative group">
+          Accueil
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#products" class="hover:text-orange-primary transition-all duration-300 hover:scale-110 relative group">
+          Produits
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#about" class="hover:text-orange-primary transition-all duration-300 hover:scale-110 relative group">
+          À propos
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#contact" class="hover:text-orange-primary transition-all duration-300 hover:scale-110 relative group">
+          Contact
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </div>
+      <!-- Menu burger -->
+      <button class="md:hidden text-coffee-dark" id="menu-toggle">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Menu mobile -->
+    <div class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-2xl md:hidden" id="mobile-menu">
+      <div class="p-6">
+        <button class="mb-8 text-coffee-dark" id="menu-close">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <div class="flex flex-col space-y-6 text-coffee-medium font-semibold">
+          <a href="#home" class="hover:text-orange-primary transition-colors mobile-menu-link">Accueil</a>
+          <a href="#products" class="hover:text-orange-primary transition-colors mobile-menu-link">Produits</a>
+          <a href="#about" class="hover:text-orange-primary transition-colors mobile-menu-link">À propos</a>
+          <a href="#contact" class="hover:text-orange-primary transition-colors mobile-menu-link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero amélioré -->
+  <section id="home" class="min-h-screen pt-32 pb-20 px-6 md:px-20 flex flex-col md:flex-row items-center relative">
+    <div class="md:w-1/2 text-center md:text-left animate-slideInLeft">
+      <h2 class="text-5xl md:text-7xl font-black leading-tight text-coffee-dark font-display mb-6">
+        Le café <span class="gradient-text animate-pulse-slow">fruité</span> qui vous réveille !
+      </h2>
+      <p class="mt-6 text-xl md:text-2xl text-coffee-medium leading-relaxed">
+        Une expérience unique mêlant arômes de café et fruits séchés naturellement. 
+        <span class="text-orange-primary font-semibold">100% pur</span>, sans sucre ajouté.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+        <a href="#products" class="group bg-gradient-to-r from-orange-primary to-orange-secondary text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-lg hover:scale-105">
+          Découvrir nos cafés
+          <span class="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
+        </a>
+        <a href="#about" class="border-2 border-orange-primary text-orange-primary px-8 py-4 rounded-full hover:bg-orange-primary hover:text-white transition-all duration-300 font-semibold text-lg hover:scale-105">
+          En savoir plus
+        </a>
+      </div>
+    </div>
+    <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center animate-slideInRight">
+      <div id="scene-container" class="relative">
+        <div class="absolute top-4 left-4 steam-animation">☁️</div>
+        <div class="absolute top-2 right-6 steam-animation" style="animation-delay: 0.5s;">☁️</div>
+        <div class="absolute top-6 right-2 steam-animation" style="animation-delay: 1s;">☁️</div>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
+      <div class="w-6 h-10 border-2 border-orange-primary rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-orange-primary rounded-full mt-2 animate-bounce"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section statistiques -->
+  <section class="py-16 bg-white/80 section-reveal">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="animate-fadeInUp">
+          <div class="text-4xl font-black text-orange-primary mb-2" data-count="100">0</div>
+          <div class="text-coffee-medium font-semibold">% Naturel</div>
+        </div>
+        <div class="animate-fadeInUp" style="animation-delay: 0.1s;">
+          <div class="text-4xl font-black text-orange-primary mb-2" data-count="15">0</div>
+          <div class="text-coffee-medium font-semibold">Saveurs</div>
+        </div>
+        <div class="animate-fadeInUp" style="animation-delay: 0.2s;">
+          <div class="text-4xl font-black text-orange-primary mb-2" data-count="20">0</div>
+          <div class="text-coffee-medium font-semibold">Clients satisfaits</div>
+        </div>
+        <div class="animate-fadeInUp" style="animation-delay: 0.3s;">
+          <div class="text-4xl font-black text-orange-primary mb-2" data-count="3">0</div>
+          <div class="text-coffee-medium font-semibold">Ans temp de réflexion</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produits améliorés -->
+  <section id="products" class="py-20 px-6 md:px-20 bg-gradient-to-br from-white/90 to-orange-50/80 section-reveal">
+    <h2 class="text-4xl md:text-6xl font-black text-center mb-4 font-display gradient-text">Nos Mélanges Fruités</h2>
+    <p class="text-center text-coffee-medium text-xl mb-16 max-w-2xl mx-auto">
+      Chaque mélange est une aventure gustative unique, soigneusement élaborée pour éveiller vos sens.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <div class="bg-white rounded-3xl p-8 shadow-lg card-hover text-center group relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-red-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <div class="text-6xl mb-6 animate-bounce-slow">🍓</div>
+          <h3 class="text-2xl font-bold mb-3 text-coffee-dark">Fruits Rouges</h3>
+          <p class="text-coffee-medium mb-4">Fraise, framboise, myrtille et cerise</p>
+          <div class="text-orange-primary font-bold text-lg mb-4"></div>
+          <button disabled class="w-full bg-gradient-to-r from-red-400 to-pink-400 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
+            Pas encore en vente
+          </button>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-3xl p-8 shadow-lg card-hover text-center group relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-orange-50 to-yellow-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <div class="text-6xl mb-6 animate-bounce-slow" style="animation-delay: 0.2s;">🍊</div>
+          <h3 class="text-2xl font-bold mb-3 text-coffee-dark">Agrumes</h3>
+          <p class="text-coffee-medium mb-4">Orange, citron, pamplemousse et bergamote</p>
+          <div class="text-orange-primary font-bold text-lg mb-4"></div>
+          <button disabled class="w-full bg-gradient-to-r from-orange-400 to-yellow-400 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
+            Pas encore en vente
+          </button>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-3xl p-8 shadow-lg card-hover text-center group relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-yellow-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <div class="text-6xl mb-6 animate-bounce-slow" style="animation-delay: 0.4s;">🥭</div>
+          <h3 class="text-2xl font-bold mb-3 text-coffee-dark">Exotiques</h3>
+          <p class="text-coffee-medium mb-4">Mangue, ananas, fruit de la passion</p>
+          <div class="text-orange-primary font-bold text-lg mb-4"></div>
+          <button disabled class="w-full disabled bg-gradient-to-r from-yellow-400 to-orange-400 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
+            Pas encore en vente
+          </button>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-3xl p-8 shadow-lg card-hover text-center group relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-green-50 to-yellow-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="relative z-10">
+          <div class="text-6xl mb-6 animate-bounce-slow" style="animation-delay: 0.6s;">🍎</div>
+          <h3 class="text-2xl font-bold mb-3 text-coffee-dark">Classiques</h3>
+          <p class="text-coffee-medium mb-4">Pomme, poire, figue</p>
+          <div class="text-orange-primary font-bold text-lg mb-4"></div>
+          <button disabled class="w-full bg-gradient-to-r from-green-400 to-yellow-400 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
+            Pas encore en vente
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section témoignages 
+   <!--
+  <section class="py-20 px-6 md:px-20 bg-white/80 section-reveal">
+    <h2 class="text-4xl md:text-5xl font-black text-center mb-16 font-display">Ce que disent nos clients</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="flex mb-4">
+          <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+        </div>
+        <p class="text-coffee-medium mb-4 italic">"Un café extraordinaire ! Le mélange exotique est devenu mon préféré du matin."</p>
+        <div class="font-semibold text-coffee-dark">- Marie L.</div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="flex mb-4">
+          <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+        </div>
+        <p class="text-coffee-medium mb-4 italic">"Enfin un café naturellement fruité ! Plus besoin d'ajouter du sucre."</p>
+        <div class="font-semibold text-coffee-dark">- Pierre M.</div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+        <div class="flex mb-4">
+          <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+        </div>
+        <p class="text-coffee-medium mb-4 italic">"Les fruits rouges apportent une douceur incroyable. Je recommande !"</p>
+        <div class="font-semibold text-coffee-dark">- Sophie D.</div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- À propos amélioré -->
+  <section id="about" class="py-20 px-6 md:px-20 bg-gradient-to-br from-orange-50 to-yellow-50 section-reveal">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-4xl md:text-6xl font-black mb-8 font-display gradient-text">Notre Philosophie</h2>
+          <p class="text-xl text-coffee-medium mb-6 leading-relaxed">
+            Chez Fruity Bean, nous croyons au mariage du bon et du naturel. Chaque grain de café est soigneusement sélectionné dans les meilleures plantations du monde.
+          </p>
+          <p class="text-lg text-coffee-medium mb-8">
+            Nos fruits séchés sont ajoutés sans aucun additif chimique, préservant ainsi toutes leurs saveurs authentiques et leurs bienfaits nutritionnels.
+          </p>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="text-center">
+              <div class="text-3xl mb-2">🌱</div>
+              <div class="font-semibold text-coffee-dark">100% Bio</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl mb-2">🔥</div>
+              <div class="font-semibold text-coffee-dark">Torréfaction artisanale</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl mb-2">🌍</div>
+              <div class="font-semibold text-coffee-dark">Commerce équitable</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl mb-2">💚</div>
+              <div class="font-semibold text-coffee-dark">Zéro déchet</div>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="bg-transparent rounded-3xl p-8">
+            <img src="./img/café.jpg" class="rounded-3xl shadow-xl">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact amélioré -->
+  <section id="contact" class="py-20 px-6 md:px-20 bg-white section-reveal">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-6xl font-black mb-6 font-display gradient-text">Nous contacter</h2>
+        <p class="text-xl text-coffee-medium">Vous avez une question ou souhaitez en savoir plus ? Écrivez-nous !</p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <form class="space-y-6" id="contact-form">
+            <div class="relative">
+              <input type="text" placeholder="Nom" required class="w-full p-4 rounded-xl border-2 border-gray-200 focus:border-orange-primary focus:outline-none transition-colors text-lg" />
+            </div>
+            <div class="relative">
+              <input type="email" placeholder="Email" required class="w-full p-4 rounded-xl border-2 border-gray-200 focus:border-orange-primary focus:outline-none transition-colors text-lg" />
+            </div>
+            <div class="relative">
+              <textarea placeholder="Message" required class="w-full p-4 rounded-xl border-2 border-gray-200 focus:border-orange-primary focus:outline-none transition-colors text-lg" rows="6"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-gradient-to-r from-orange-primary to-orange-secondary text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+              Envoyer le message
+            </button>
+          </form>
+        </div>
+        
+        <div class="space-y-8">
+          <div class="flex items-start space-x-4">
+            <div class="bg-orange-primary text-white p-3 rounded-full">
+              📍
+            </div>
+            <div>
+              <h3 class="font-semibold text-coffee-dark text-lg mb-2">Adresse</h3>
+              <p class="text-coffee-medium">Belgique</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="bg-orange-primary text-white p-3 rounded-full">
+              📞
+            </div>
+            <div>
+              <h3 class="font-semibold text-coffee-dark text-lg mb-2">Téléphone</h3>
+              <p class="text-coffee-medium">(+32) 0498.19.65.23</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-4">
+            <div class="bg-orange-primary text-white p-3 rounded-full">
+              ✉️
+            </div>
+            <div>
+              <h3 class="font-semibold text-coffee-dark text-lg mb-2">Email</h3>
+              <p class="text-coffee-medium">contact@fruitybean.be</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer amélioré -->
+  <footer class="bg-gradient-to-r from-coffee-dark to-coffee-medium text-white py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="font-display text-2xl mb-4 gradient-text">☕ Fruity Bean</h3>
+          <p class="text-gray-300 mb-4">Le café fruité qui réveille vos sens depuis 2025.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-orange-primary transition-colors">📘</a>
+            <a href="#" class="text-gray-300 hover:text-orange-primary transition-colors">📷</a>
+            <a href="#" class="text-gray-300 hover:text-orange-primary transition-colors">🐦</a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Produits</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="#" class="hover:text-orange-primary transition-colors">Fruits Rouges</a></li>
+            <li><a href="#" class="hover:text-orange-primary transition-colors">Agrumes</a></li>
+            <li><a href="#" class="hover:text-orange-primary transition-colors">Exotiques</a></li>
+            <li><a href="#" class="hover:text-orange-primary transition-colors">Classiques</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Entreprise</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="#about" class="hover:text-orange-primary transition-colors">À propos</a></li>
+            <li><a href="#products" class="hover:text-orange-primary transition-colors">Produits</a></li>
+            <!--
+            <li><a href="#" class="hover:text-orange-primary transition-colors">Notre histoire</a></li>
+            <li><a href="#" class="hover:text-orange-primary transition-colors">Carrières</a></li>
+            <li><a href="#" class="hover:text-orange-primary transition-colors">Presse</a></li>
+            -->
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="#contact" class="hover:text-orange-primary transition-colors">Contact</a></li>
+            <!--
+            <li><a href="#" class="hover:text-orange-primary transition-colors">FAQ</a></li>
+            <li><a href="#" class="hover:text-orange-primary transition-colors">Livraison</a></li>
+            <li><a href="#" class="hover:text-orange-primary transition-colors">Retours</a></li>
+            -->
+          </ul>
+        </div>
+      </div>
+      
+      <hr class="my-8 border-gray-600">
+      
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-300 mb-4 md:mb-0">© 2025 Fruity Bean. Tous droits réservés.</p>
+        <div class="flex space-x-6 text-gray-300 text-sm">
+          <a href="#" class="hover:text-orange-primary transition-colors">Politique de confidentialité</a>
+          <a href="#" class="hover:text-orange-primary transition-colors">Conditions d'utilisation</a>
+          <a href="#" class="hover:text-orange-primary transition-colors">Mentions légales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Menu mobile
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+    });
+
+    menuClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+    });
+
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Scroll reveal
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section-reveal').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white/95');
+        navbar.classList.remove('bg-white/90');
+      } else {
+        navbar.classList.add('bg-white/90');
+        navbar.classList.remove('bg-white/95');
+      }
+    });
+
+    // Counter animation
+    function animateCounter(element, target, duration = 2000) {
+      let start = 0;
+      const increment = target / (duration / 16);
+      
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          element.textContent = target;
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(start);
+        }
+      }, 16);
+    }
+
+    // Trigger counters when section is visible
+    const countersObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('[data-count]');
+          counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            animateCounter(counter, target);
+          });
+          countersObserver.unobserve(entry.target);
+        }
+      });
+    });
+
+    const statsSection = document.querySelector('.py-16.bg-white\\/80');
+    if (statsSection) {
+      countersObserver.observe(statsSection);
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Form submission
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Animation de soumission
+      const button = this.querySelector('button[type="submit"]');
+      const originalText = button.textContent;
+      
+      button.textContent = 'Envoi en cours...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = 'Message envoyé ! ✓';
+        button.classList.add('bg-green-500');
+        
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.disabled = false;
+          button.classList.remove('bg-green-500');
+          this.reset();
+        }, 2000);
+      }, 1000);
+    });
+
+    // THREE.JS Scene
+    const container = document.getElementById('scene-container');
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 100);
+    camera.position.z = 5;
+    camera.position.y = 1;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    container.appendChild(renderer.domElement);
+
+    // Create cup group
+    const cupGroup = new THREE.Group();
+    scene.add(cupGroup);
+
+    // Materials with improved lighting
+    const whiteMat = new THREE.MeshPhongMaterial({ 
+        color: 0xffffff,
+        shininess: 100,
+        specular: 0x404040
+    });
+    const brownMat = new THREE.MeshPhongMaterial({ 
+        color: 0x6f4e37,
+        shininess: 30
+    });
+
+    // Enhanced lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+    directionalLight.position.set(5, 8, 5);
+    directionalLight.castShadow = true;
+    directionalLight.shadow.mapSize.width = 2048;
+    directionalLight.shadow.mapSize.height = 2048;
+    scene.add(directionalLight);
+
+    const pointLight = new THREE.PointLight(0xff6b35, 0.5, 10);
+    pointLight.position.set(-3, 3, 3);
+    scene.add(pointLight);
+
+    // Create cup components
+    const cupGeometry = new THREE.CylinderGeometry(1, 0.8, 2, 32);
+    const cup = new THREE.Mesh(cupGeometry, whiteMat);
+    cup.castShadow = true;
+    cup.receiveShadow = true;
+    cupGroup.add(cup);
+
+    const handleGeometry = new THREE.TorusGeometry(0.5, 0.09, 16, 32, Math.PI);
+    const handle = new THREE.Mesh(handleGeometry, whiteMat);
+    handle.position.set(-1.09, 0, 0);
+    handle.rotation.z = Math.PI / 2;
+    handle.castShadow = true;
+    cupGroup.add(handle);
+
+    const coffeeGeometry = new THREE.CylinderGeometry(0.95, 0.75, 0.1, 32);
+    const coffee = new THREE.Mesh(coffeeGeometry, brownMat);
+    coffee.position.y = 0.95;
+    coffee.castShadow = true;
+    cupGroup.add(coffee);
+
+    // Enhanced steam particles
+    const steamParticles = [];
+    const particleGeometry = new THREE.SphereGeometry(0.05, 8, 8);
+    
+    for (let i = 0; i < 15; i++) {
+        const particleMaterial = new THREE.MeshBasicMaterial({ 
+            color: 0xdddddd,
+            transparent: true,
+            opacity: 0.6
+        });
+        
+        const particle = new THREE.Mesh(particleGeometry, particleMaterial);
+        particle.position.y = 1;
+        particle.position.x = (Math.random() - 0.5) * 0.5;
+        particle.position.z = (Math.random() - 0.5) * 0.5;
+        particle.userData = {
+            speed: 0.008 + Math.random() * 0.012,
+            offset: Math.random() * Math.PI * 2,
+            initialX: particle.position.x,
+            initialZ: particle.position.z
+        };
+        steamParticles.push(particle);
+        cupGroup.add(particle);
+    }
+
+    // Animation loop with improved effects
+    let time = 0;
+    function animate() {
+        requestAnimationFrame(animate);
+        time += 0.01;
+        
+        // Smooth cup rotation
+        cupGroup.rotation.y = Math.sin(time * 0.5) * 0.3;
+        cupGroup.position.y = Math.sin(time * 2) * 0.1;
+
+        // Enhanced steam animation
+        steamParticles.forEach((particle, i) => {
+            particle.position.y += particle.userData.speed;
+            
+            const swirl = time + particle.userData.offset;
+            particle.position.x = particle.userData.initialX + Math.sin(swirl) * 0.3;
+            particle.position.z = particle.userData.initialZ + Math.cos(swirl * 0.7) * 0.2;
+            
+            // Fade out as particles rise
+            const fadeStart = 1.5;
+            const fadeEnd = 3.5;
+            if (particle.position.y > fadeStart) {
+                const fadeProgress = (particle.position.y - fadeStart) / (fadeEnd - fadeStart);
+                particle.material.opacity = Math.max(0, 0.6 * (1 - fadeProgress));
+                particle.scale.setScalar(1 + fadeProgress * 0.5);
+            }
+
+            // Reset particle when it gets too high
+            if (particle.position.y > fadeEnd) {
+                particle.position.y = 1;
+                particle.position.x = particle.userData.initialX;
+                particle.position.z = particle.userData.initialZ;
+                particle.material.opacity = 0.6;
+                particle.scale.setScalar(1);
+            }
+        });
+        
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Responsive resize
+    function handleResize() {
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+    }
+
+    window.addEventListener('resize', handleResize);
+    
+    // Mouse interaction
+    let mouseX = 0;
+    let mouseY = 0;
+    
+    container.addEventListener('mousemove', (event) => {
+        const rect = container.getBoundingClientRect();
+        mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        mouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    });
+
+    // Add mouse interaction to animation
+    const originalAnimate = animate;
+    animate = function() {
+        requestAnimationFrame(animate);
+        time += 0.01;
+        
+        // Mouse-influenced rotation
+        const targetRotationY = Math.sin(time * 0.5) * 0.3 + mouseX * 0.3;
+        const targetRotationX = mouseY * 0.2;
+        
+        cupGroup.rotation.y += (targetRotationY - cupGroup.rotation.y) * 0.05;
+        cupGroup.rotation.x += (targetRotationX - cupGroup.rotation.x) * 0.05;
+        cupGroup.position.y = Math.sin(time * 2) * 0.1;
+
+        // Enhanced steam animation (same as before)
+        steamParticles.forEach((particle, i) => {
+            particle.position.y += particle.userData.speed;
+            
+            const swirl = time + particle.userData.offset;
+            particle.position.x = particle.userData.initialX + Math.sin(swirl) * 0.3;
+            particle.position.z = particle.userData.initialZ + Math.cos(swirl * 0.7) * 0.2;
+            
+            const fadeStart = 1.5;
+            const fadeEnd = 3.5;
+            if (particle.position.y > fadeStart) {
+                const fadeProgress = (particle.position.y - fadeStart) / (fadeEnd - fadeStart);
+                particle.material.opacity = Math.max(0, 0.6 * (1 - fadeProgress));
+                particle.scale.setScalar(1 + fadeProgress * 0.5);
+            }
+
+            if (particle.position.y > fadeEnd) {
+                particle.position.y = 1;
+                particle.position.x = particle.userData.initialX;
+                particle.position.z = particle.userData.initialZ;
+                particle.material.opacity = 0.6;
+                particle.scale.setScalar(1);
+            }
+        });
+        
+        renderer.render(scene, camera);
+    };
+  </script>
+
+</body>
+</html>
