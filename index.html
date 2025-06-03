@@ -8,6 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/tailwind.config.js"></script>
+  <script src="./js/click.js"></script>
 </head>
 <style>
   .nav-link {
@@ -134,8 +135,8 @@
           <h3 class="text-2xl font-bold mb-3 text-coffee-dark">Fruits Rouges</h3>
           <p class="text-coffee-medium mb-4">Fraise, framboise, myrtille et cerise</p>
           <div class="text-orange-primary font-bold text-lg mb-4"></div>
-          <button disabled class="w-full bg-gradient-to-r from-green-400 to-red-400 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
-            Pas encore en vente
+          <button onclick="redirectRed()" class="w-full bg-gradient-to-r from-green-400 to-red-400 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
+            En savoir plus +
           </button>
         </div>
       </div>
@@ -147,8 +148,8 @@
           <h3 class="text-2xl font-bold mb-3 text-coffee-dark">Agrumes</h3>
           <p class="text-coffee-medium mb-4">Orange, citron, pamplemousse et bergamote</p>
           <div class="text-orange-primary font-bold text-lg mb-4"></div>
-          <button disabled class="w-full bg-gradient-to-r from-orange-200 to-orange-500 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
-            Pas encore en vente
+          <button onclick="redirectAgrume()" class="w-full bg-gradient-to-r from-orange-200 to-orange-500 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
+            En savoir plus +
           </button>
         </div>
       </div>
@@ -160,8 +161,8 @@
           <h3 class="text-2xl font-bold mb-3 text-coffee-dark">Exotiques</h3>
           <p class="text-coffee-medium mb-4">Mangue, ananas, fruit de la passion</p>
           <div class="text-orange-primary font-bold text-lg mb-4"></div>
-          <button disabled class="w-full disabled bg-gradient-to-r from-red-400 to-green-400 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
-            Pas encore en vente
+          <button onclick="redirectExotique()" class="w-full disabled bg-gradient-to-r from-red-400 to-green-400 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
+            En savoir plus +
           </button>
         </div>
       </div>
@@ -173,8 +174,8 @@
           <h3 class="text-2xl font-bold mb-3 text-coffee-dark">Classiques</h3>
           <p class="text-coffee-medium mb-4">Pomme, poire, figue</p>
           <div class="text-orange-primary font-bold text-lg mb-4"></div>
-          <button disabled class="w-full bg-gradient-to-r from-green-300 to-green-500 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
-            Pas encore en vente
+          <button onclick="redirectClassic()" class="w-full bg-gradient-to-r from-green-300 to-green-500 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0">
+            En savoir plus +
           </button>
         </div>
       </div>

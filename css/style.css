@@ -11,9 +11,6 @@ body {
     background: transparent;
 }
 
-#products button{
-    cursor:not-allowed !important;
-}
 
     #scene-container {
       width: 100%;
