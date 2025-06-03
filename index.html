@@ -655,8 +655,8 @@
     
     container.addEventListener('mousemove', (event) => {
         const rect = container.getBoundingClientRect();
-        mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-        mouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+        mouseX = -((event.clientX - rect.left) / rect.width) * 2 + 1; // inversion horizontale
+        mouseY = ((event.clientY - rect.top) / rect.height) * 2 - 1;  // inversion verticale
     });
 
     // Add mouse interaction to animation
