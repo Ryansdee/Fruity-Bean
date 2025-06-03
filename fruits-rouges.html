@@ -8,8 +8,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/tailwind.config.js"></script>
+  <script src="./js/click.js"></script>
 </head>
 <style>
+    strong{
+        color: red;
+    }
   .nav-link {
     @apply hover:text-orange-primary transition-all duration-300 hover:scale-110 relative group;
   }
@@ -68,7 +72,7 @@
 
     <!-- Description produit -->
     <div>
-      <h2 class="text-4xl font-bold font-display mb-4 text-orange-primary">Café Fruits Rouges</h2>
+      <h2 class="text-4xl font-bold font-display mb-4 text-red-500">Café Fruits Rouges</h2>
       <p class="text-lg leading-relaxed mb-6">
         Une explosion de saveurs fruitées dans chaque tasse. Ce café est infusé naturellement avec des notes de <strong>Fraise</strong>, <strong>Framboise</strong><strong> Cerise </strong> <strong> et </strong> <strong> Myrtille</strong> pour offrir un goût vif et délicieusement sucré, parfait pour vos matins ou une pause gourmande.
       </p>
@@ -78,7 +82,7 @@
         <li>Torréfié en Belgique avec soin</li>
         <li>Disponible moulu</li>
       </ul>
-      <a href="#" class="inline-block bg-orange-primary text-white py-3 px-6 rounded-xl shadow-md hover:bg-orange-600 transition">Commander maintenant</a>
+      <a href="#" class="inline-block bg-red-300 text-white py-3 px-6 rounded-xl shadow-md hover:bg-red-700 transition">Soutenir le projet ?</a>
     </div>
   </div>
 </section>
@@ -158,12 +162,13 @@
       <hr class="my-8 border-gray-600">
       
       <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="text-gray-300 mb-4 md:mb-0">© 2025 Fruity Bean. Tous droits réservés.</p>
+        <p class="text-gray-300 mb-4 md:mb-0"><p id="version"></p>© 2025 Fruity Bean. Tous droits réservés.</p>
         <div class="flex space-x-6 text-gray-300 text-sm">
           <a href="#" class="hover:text-orange-primary transition-colors">Politique de confidentialité</a>
           <a href="#" class="hover:text-orange-primary transition-colors">Conditions d'utilisation</a>
           <a href="#" class="hover:text-orange-primary transition-colors">Mentions légales</a>
         </div>
+        <p><span id="version"></span></p>
       </div>
     </div>
   </footer>
@@ -299,6 +304,6 @@
       }, 1000);
     });
   </script>
-
+  <script src="./js/click.js"></script>
 </body>
 </html>
