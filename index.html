@@ -22,64 +22,66 @@
 <body class="parallax-bg text-coffee-dark overflow-x-hidden">
 
   <!-- Navbar améliorée -->
-<nav class="fixed w-full z-50 py-4 px-6 shadow-lg bg-white/90 backdrop-blur-md transition-all duration-300" id="navbar">
-  <div class="max-w-7xl mx-auto flex justify-between items-center">
-    <h1 class="text-2xl font-bold gradient-text font-display animate-float flex items-center gap-2">
-    <img src="./img/logo.png" class="w-5 h-5" alt="" />
-    Fruity Bean
-    </h1>
+  <nav class="fixed w-full z-50 py-4 px-6 shadow-lg bg-white/90 backdrop-blur-md transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold gradient-text font-display animate-float flex items-center gap-2">
+        <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center">
+          <img src="./img/logo.png" class="w-40" alt="">
+        </div>
+        Fruity Bean
+      </h1>
 
-    <!-- Menu Desktop -->
-    <div class="hidden md:flex space-x-8 text-coffee-medium font-semibold">
-      <a href="#home" class="nav-link">Accueil</a>
-      <a href="#products" class="nav-link">Produits</a>
-      <a href="#about" class="nav-link">À propos</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </div>
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+        <a href="/#home" class="nav-link">Accueil</a>
+        <a href="/#products" class="nav-link">Produits</a>
+        <a href="/#about" class="nav-link">À propos</a>
+        <a href="/#contact" class="nav-link">Contact</a>
+      </div>
 
-    <!-- Hamburger Button -->
-    <button id="menu-toggle" class="md:hidden text-coffee-dark" aria-label="Ouvrir le menu mobile" aria-expanded="false">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-  </div>
-
-  <!-- Menu Mobile -->
-  <div id="mobile-menu" class="fixed inset-0 z-40 bg-white ackdrop-blur-md p-6 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden" role="dialog" aria-modal="true" hidden>
-    <div class="flex justify-end">
-      <button id="menu-close" class="text-coffee-dark" aria-label="Fermer le menu">
+      <!-- Hamburger Button -->
+      <button id="menu-toggle" class="md:hidden text-gray-700" aria-label="Ouvrir le menu mobile" aria-expanded="false">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
-    <div class="flex flex-col p-8 bg-white space-y-6 text-coffee-medium font-semibold w-full">
-      <a href="#home" class="mobile-menu-link">Accueil</a>
-      <a href="#products" class="mobile-menu-link">Produits</a>
-      <a href="#about" class="mobile-menu-link">À propos</a>
-      <a href="#contact" class="mobile-menu-link">Contact</a>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white backdrop-blur-md p-6 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden" role="dialog" aria-modal="true" hidden>
+      <div class="flex justify-end">
+        <button id="menu-close" class="text-gray-700" aria-label="Fermer le menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col p-8 bg-white space-y-6 text-gray-700 font-semibold w-full">
+        <a href="#home" class="mobile-menu-link">Accueil</a>
+        <a href="#products" class="mobile-menu-link">Produits</a>
+        <a href="#about" class="mobile-menu-link">À propos</a>
+        <a href="#contact" class="mobile-menu-link">Contact</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
 
   <!-- Hero amélioré -->
   <section id="home" class="min-h-screen pt-32 pb-20 px-6 md:px-20 flex flex-col md:flex-row items-center relative">
     <div class="md:w-1/2 text-center md:text-left animate-slideInLeft">
       <h2 class="text-5xl md:text-7xl font-black leading-tight text-coffee-dark font-display mb-6">
-        Le café <span class="gradient-text animate-pulse-slow">fruité</span> qui vous réveille !
+        Le café <span class="text-orange-400 font-bold">fruité</span> qui vous réveille !
       </h2>
       <p class="mt-6 text-xl md:text-2xl text-coffee-medium leading-relaxed">
         Une expérience unique mêlant arômes de café et fruits séchés naturellement. 
-        <span class="text-orange-primary font-semibold">100% pur</span>, sans sucre ajouté.
+        <span class="text-gray-800 font-semibold">100% pur</span>, sans sucre ajouté.
       </p>
       <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
         <a href="#products" class="group bg-gradient-to-r from-orange-primary to-orange-secondary text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-semibold text-lg hover:scale-105">
           Découvrir nos cafés
           <span class="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
         </a>
-        <a href="#about" class="border-2 border-orange-primary text-orange-primary px-8 py-4 rounded-full hover:bg-orange-primary hover:text-white transition-all duration-300 font-semibold text-lg hover:scale-105">
+        <a href="#about" class="border-2 border-white-600 text-white px-8 py-4 rounded-full hover:bg-orange-primary hover:text-white hover:border-orange-primary transition-all duration-300 font-semibold text-lg hover:scale-105">
           En savoir plus
         </a>
       </div>
@@ -94,8 +96,8 @@
     
     <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
-      <div class="w-6 h-10 border-2 border-orange-primary rounded-full flex justify-center">
-        <div class="w-1 h-3 bg-orange-primary rounded-full mt-2 animate-bounce"></div>
+      <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></div>
       </div>
     </div>
   </section>
@@ -316,54 +318,51 @@
   </section>
 
   <!-- Footer amélioré -->
-  <footer class="bg-gradient-to-r from-coffee-dark to-coffee-medium text-white py-12">
+<footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-            <h3 class="font-display text-2xl mb-4 gradient-text flex items-center gap-2">
-            <img src="./img/logo.png" alt="Coffee icon" class="w-6 h-6" />
+          <h3 class="text-2xl mb-4 gradient-text flex items-center gap-2">
+            <div class="w-8 h-8 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center">
+              ☕
+            </div>
             Fruity Bean
-            </h3>
+          </h3>
           <p class="text-gray-300 mb-4">Le café fruité qui réveille vos sens depuis 2025.</p>
           <div class="flex space-x-4">
-            <a href="#" class="text-gray-300 hover:text-orange-primary transition-colors">📘</a>
-            <a href="#" class="text-gray-300 hover:text-orange-primary transition-colors">📷</a>
-            <a href="#" class="text-gray-300 hover:text-orange-primary transition-colors">🐦</a>
+            <a href="#" class="text-gray-300 hover:text-orange-500 transition-colors text-xl">📘</a>
+            <a href="#" class="text-gray-300 hover:text-orange-500 transition-colors text-xl">📷</a>
+            <a href="#" class="text-gray-300 hover:text-orange-500 transition-colors text-xl">🐦</a>
           </div>
         </div>
         
         <div>
           <h4 class="font-semibold mb-4">Produits</h4>
           <ul class="space-y-2 text-gray-300">
-            <li><a href="fruits-rouges.html" class="hover:text-orange-primary transition-colors">Fruits Rouges</a></li>
-            <li><a href="#" class="hover:text-orange-primary transition-colors">Agrumes</a></li>
-            <li><a href="#" class="hover:text-orange-primary transition-colors">Exotiques</a></li>
-            <li><a href="#" class="hover:text-orange-primary transition-colors">Classiques</a></li>
+            <li><a href="/fruits-rouges.html" class="hover:text-orange-500 transition-colors">Fruits Rouges</a></li>
+            <li><a href="/agrumes.html" class="hover:text-orange-500 transition-colors">Agrumes</a></li>
+            <li><a href="/exotiques.html" class="hover:text-orange-500 transition-colors">Exotiques</a></li>
+            <li><a href="/classiques.html" class="hover:text-orange-500 transition-colors">Classiques</a></li>
           </ul>
         </div>
         
         <div>
           <h4 class="font-semibold mb-4">Entreprise</h4>
           <ul class="space-y-2 text-gray-300">
-            <li><a href="#about" class="hover:text-orange-primary transition-colors">À propos</a></li>
-            <li><a href="#products" class="hover:text-orange-primary transition-colors">Produits</a></li>
-            <!--
-            <li><a href="#" class="hover:text-orange-primary transition-colors">Notre histoire</a></li>
-            <li><a href="#" class="hover:text-orange-primary transition-colors">Carrières</a></li>
-            <li><a href="#" class="hover:text-orange-primary transition-colors">Presse</a></li>
-            -->
+            <li><a href="/#about" class="hover:text-orange-500 transition-colors">À propos</a></li>
+            <li><a href="/#products" class="hover:text-orange-500 transition-colors">Produits</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition-colors">Notre histoire</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition-colors">Durabilité</a></li>
           </ul>
         </div>
         
         <div>
           <h4 class="font-semibold mb-4">Support</h4>
           <ul class="space-y-2 text-gray-300">
-            <li><a href="#contact" class="hover:text-orange-primary transition-colors">Contact</a></li>
-            <!--
-            <li><a href="#" class="hover:text-orange-primary transition-colors">FAQ</a></li>
-            <li><a href="#" class="hover:text-orange-primary transition-colors">Livraison</a></li>
-            <li><a href="#" class="hover:text-orange-primary transition-colors">Retours</a></li>
-            -->
+            <li><a href="/#contact" class="hover:text-orange-500 transition-colors">Contact</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition-colors">FAQ</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition-colors">Livraison</a></li>
+            <li><a href="#" class="hover:text-orange-500 transition-colors">Garantie</a></li>
           </ul>
         </div>
       </div>
@@ -371,11 +370,11 @@
       <hr class="my-8 border-gray-600">
       
       <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="text-gray-300 mb-4 md:mb-0"><p id="version"></p>© 2025 Fruity Bean. Tous droits réservés.</p>
+        <p class="text-gray-300 mb-4 md:mb-0">© 2025 Fruity Bean. Tous droits réservés.</p>
         <div class="flex space-x-6 text-gray-300 text-sm">
-          <a href="#" class="hover:text-orange-primary transition-colors">Politique de confidentialité</a>
-          <a href="#" class="hover:text-orange-primary transition-colors">Conditions d'utilisation</a>
-          <a href="#" class="hover:text-orange-primary transition-colors">Mentions légales</a>
+          <a href="#" class="hover:text-orange-500 transition-colors">Politique de confidentialité</a>
+          <a href="#" class="hover:text-orange-500 transition-colors">Conditions d'utilisation</a>
+          <a href="#" class="hover:text-orange-500 transition-colors">Mentions légales</a>
         </div>
       </div>
     </div>
@@ -574,7 +573,7 @@
 
     const coffeeGeometry = new THREE.CylinderGeometry(0.95, 0.75, 0.1, 32);
     const coffee = new THREE.Mesh(coffeeGeometry, brownMat);
-    coffee.position.y = 0.95;
+    coffee.position.y = 0.951;
     coffee.castShadow = true;
     cupGroup.add(coffee);
 
